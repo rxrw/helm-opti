@@ -3,7 +3,7 @@ entries:
   mysql-chart:
   - apiVersion: v2
     appVersion: "8"
-    created: "2023-10-10T18:07:31.643585+08:00"
+    created: "2023-10-10T18:25:23.292466+08:00"
     description: A Helm chart for MySQL with NFS as persistent storage
     digest: fb8c883c78664b68a8d80bddb7b37f50eced10738e15dcc584e6664784fdbc83
     icon: https://www.mysql.com/common/logos/logo-mysql-170x115.png
@@ -12,4 +12,16 @@ entries:
     urls:
     - mysql-chart-0.1.0.tgz
     version: 0.1.0
-generated: "2023-10-10T18:07:31.643115+08:00"
+  redis-chart:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2023-10-10T18:25:23.292723+08:00"
+    description: A Helm chart for Redis with NFS as persistent storage
+    digest: 32a704fdb13ee3aabdbc22c32a8b219ec75d14221aa83afdbdb15552ccb4d5bf
+    icon: https://redis.com/wp-content/themes/wpx/assets/images/logo-redis.svg?auto=webp&quality=85,75&width=120
+    name: redis-chart
+    type: application
+    urls:
+    - redis-chart-0.1.0.tgz
+    version: 0.1.0
+generated: "2023-10-10T18:25:23.29107+08:00"
