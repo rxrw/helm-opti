@@ -3,49 +3,13 @@ entries:
   media-center-app:
   - apiVersion: v2
     appVersion: "1"
-    created: "2023-10-11T14:33:15.184654+08:00"
+    created: "2023-10-25T18:58:47.671129+08:00"
     description: A Helm chart for Media Center with NFS as persistent storage
-    digest: 462311d68d37cde317c7b5882134bb124b7551efdadcf1c6ea4cae4e32ac0aad
+    digest: c7ffdc36932e2a7ca6e99ed5c0bed04a668049b5e4c217367eeb742f760b1d9b
     icon: https://trakt.tv/assets/logos/white-bg@2x-626e9680c03d0542b3e26c3305f58050d2178e5d4222fac7831d83cf37fef42b.png
     name: media-center-app
     type: application
     urls:
     - media-center-app-0.1.0.tgz
     version: 0.1.0
-  mysql:
-  - apiVersion: v2
-    appVersion: "8"
-    created: "2023-10-11T14:33:15.185019+08:00"
-    description: A Helm chart for MySQL with NFS as persistent storage
-    digest: bc29fc348ae952f74220e3ea814fdb3d01a4a3f83b40bd8f31195401d8af4550
-    icon: https://www.mysql.com/common/logos/logo-mysql-170x115.png
-    name: mysql
-    type: application
-    urls:
-    - mysql-0.1.0.tgz
-    version: 0.1.0
-  redis:
-  - apiVersion: v2
-    appVersion: latest
-    created: "2023-10-11T14:33:15.185329+08:00"
-    description: A Helm chart for Redis with NFS as persistent storage
-    digest: d0eb15fa6d447b58b0fd452490853e451043e50ec57db521abe93df908002a69
-    icon: https://redis.com/wp-content/themes/wpx/assets/images/logo-redis.svg?auto=webp&quality=85,75&width=120
-    name: redis
-    type: application
-    urls:
-    - redis-0.1.0.tgz
-    version: 0.1.0
-  traefik-app:
-  - apiVersion: v2
-    appVersion: 2.10.0
-    created: "2023-10-11T14:33:15.18559+08:00"
-    description: A Helm chart for Traefik without https
-    digest: d5b9435d66d87a5698f220219617ab0625ef41d7584c1362b8a1c013198b1e0d
-    icon: https://github.com/traefik/traefik/raw/master/docs/content/assets/img/traefik.logo.png
-    name: traefik-app
-    type: application
-    urls:
-    - traefik-app-0.1.0.tgz
-    version: 0.1.0
-generated: "2023-10-11T14:33:15.184156+08:00"
+generated: "2023-10-25T18:58:47.670596+08:00"
