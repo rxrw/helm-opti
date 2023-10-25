@@ -3,13 +3,13 @@ entries:
   media-center-app:
   - apiVersion: v2
     appVersion: "1"
-    created: "2023-10-25T18:58:47.671129+08:00"
+    created: "2023-10-25T22:14:44.499582+08:00"
     description: A Helm chart for Media Center with NFS as persistent storage
-    digest: c7ffdc36932e2a7ca6e99ed5c0bed04a668049b5e4c217367eeb742f760b1d9b
+    digest: 757a9dcd7c4c64aabff57f83f57dde34f09fbede947895677baa278331922fbe
     icon: https://trakt.tv/assets/logos/white-bg@2x-626e9680c03d0542b3e26c3305f58050d2178e5d4222fac7831d83cf37fef42b.png
     name: media-center-app
     type: application
     urls:
     - media-center-app-0.1.0.tgz
     version: 0.1.0
-generated: "2023-10-25T18:58:47.670596+08:00"
+generated: "2023-10-25T22:14:44.49932+08:00"
