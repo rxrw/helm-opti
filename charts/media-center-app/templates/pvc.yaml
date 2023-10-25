@@ -1,0 +1,124 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: media-center-pvc
+spec:
+  volumeName: media-center-pv
+  accessModes:
+    - ReadWriteMany
+  storageClassName: ''
+  resources:
+    requests:
+      storage: 51200Gi
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: media-center-sonarr-config-pvc
+spec:
+  volumeName: media-center-sonarr-config-pv
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: ''
+  resources:
+    requests:
+      storage: 1Gi
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: media-center-radarr-config-pvc
+spec:
+  volumeName: media-center-radarr-config-pv
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: ''
+  resources:
+    requests:
+      storage: 1Gi
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: media-center-prowlarr-config-pvc
+spec:
+  volumeName: media-center-prowlarr-config-pv
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: ''
+  resources:
+    requests:
+      storage: 1Gi
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: media-center-emby-config-pvc
+spec:
+  volumeName: media-center-emby-config-pv
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: ''
+  resources:
+    requests:
+      storage: 1Gi
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: media-center-bazarr-config-pvc
+spec:
+  volumeName: media-center-bazarr-config-pv
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: ''
+  resources:
+    requests:
+      storage: 1Gi
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: media-center-flexget-config-pvc
+spec:
+  volumeName: media-center-flexget-config-pv
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: ''
+  resources:
+    requests:
+      storage: 1Gi
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: media-center-flexget-data-pvc
+spec:
+  volumeName: media-center-flexget-data-pv
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: ''
+  resources:
+    requests:
+      storage: 1Gi
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: media-center-searcharr-data-pvc
+spec:
+  volumeName: media-center-searcharr-data-pv
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: ''
+  resources:
+    requests:
+      storage: 1Gi

@@ -1,0 +1,345 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bazarr
+  namespace: media-center
+  labels:
+    app: media-center
+    component: bazarr
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: media-center
+      component: bazarr
+  template:
+    metadata:
+      labels:
+        app: media-center
+        component: bazarr
+    spec:
+      containers:
+        - image: linuxserver/bazarr:latest
+          name: bazarr
+          ports:
+            - containerPort: 6767
+          volumeMounts:
+            - mountPath: /config
+              name: bazarr-data
+            - mountPath: /media
+              name: media
+          env:
+            - name: PUID
+              value: "{{ .Values.global.uid }}"
+            - name: PGID
+              value: "{{ .Values.global.gid }}"
+            - name: TZ
+              value: "{{ .Values.global.timezone }}"
+            - name: UMASK
+              value: "{{ .Values.global.umask }}"
+      volumes:
+        - name: media
+          persistentVolumeClaim:
+            claimName: media-center-pvc
+        - name: bazarr-data
+          persistentVolumeClaim:
+            claimName: media-center-bazarr-config-pvc
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: emby
+  namespace: media-center
+  labels:
+    app: media-center
+    component: emby
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: media-center
+      component: emby
+  template:
+    metadata:
+      labels:
+        app: media-center
+        component: emby
+    spec:
+      containers:
+        - image: emby/embyserver
+          name: emby
+          securityContext:
+            privileged: true
+          ports:
+            - containerPort: 8096
+          volumeMounts:
+            - name: emby-config
+              mountPath: /config
+            - name: media
+              mountPath: /media
+            - name: device-volume
+              mountPath: /dev/dri
+          env:
+            - name: UID
+              value: "{{ .Values.global.uid }}"
+            - name: GID
+              value: "{{ .Values.global.gid }}"
+            - name: GIDLIST
+              value: 100,44,109,1000
+            - name: TZ
+              value: "{{ .Values.global.timezone }}"
+            - name: UMASK
+              value: "{{ .Values.global.umask }}"
+      volumes:
+        - name: emby-config
+          persistentVolumeClaim:
+            claimName: media-center-emby-config-pvc
+        - name: media
+          persistentVolumeClaim:
+            claimName: media-center-pvc
+        - name: device-volume
+          hostPath:
+            path: /dev/dri
+            type: Directory
+      restartPolicy: Always
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flexget
+  namespace: media-center
+  labels:
+    app: media-center
+    component: flexget
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: media-center
+      component: flexget
+  template:
+    metadata:
+      labels:
+        app: media-center
+        component: flexget
+    spec:
+      containers:
+        - image: wiserain/flexget
+          name: flexget
+          ports:
+            - containerPort: 5050
+          volumeMounts:
+            - mountPath: /config
+              name: flexget-config
+            - mountPath: /data
+              name: flexget-data
+          env:
+            - name: FG_WEBUI_PASSWD
+              value: "{{ .Values.flexget.webuiPassword }}"
+            - name: PUID
+              value: "{{ .Values.global.uid }}"
+            - name: PGID
+              value: "{{ .Values.global.gid }}"
+            - name: TZ
+              value: "{{ .Values.global.timezone }}"
+            - name: UMASK
+              value: "{{ .Values.global.umask }}"
+      volumes:
+        - name: flexget-config
+          persistentVolumeClaim:
+            claimName: media-center-flexget-config-pvc
+        - name: flexget-data
+          persistentVolumeClaim:
+            claimName: media-center-flexget-data-pvc
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prowlarr
+  namespace: media-center
+  labels:
+    app: media-center
+    component: prowlarr
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: media-center
+      component: prowlarr
+  template:
+    metadata:
+      labels:
+        app: media-center
+        component: prowlarr
+    spec:
+      containers:
+        - image: linuxserver/prowlarr:develop
+          name: prowlarr
+          ports:
+            - containerPort: 9696
+          volumeMounts:
+            - mountPath: /config
+              name: prowlarr-data
+            - mountPath: /media
+              name: media
+          env:
+            - name: PUID
+              value: "{{ .Values.global.uid }}"
+            - name: PGID
+              value: "{{ .Values.global.gid }}"
+            - name: TZ
+              value: "{{ .Values.global.timezone }}"
+            - name: UMASK
+              value: "{{ .Values.global.umask }}"
+      volumes:
+        - name: media
+          persistentVolumeClaim:
+            claimName: media-center-pvc
+        - name: prowlarr-data
+          persistentVolumeClaim:
+            claimName: media-center-prowlarr-config-pvc
+      restartPolicy: Always
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: radarr
+  namespace: media-center
+  labels:
+    app: media-center
+    component: radarr
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: media-center
+      component: radarr
+  template:
+    metadata:
+      labels:
+        app: media-center
+        component: radarr
+    spec:
+      containers:
+        - image: linuxserver/radarr:nightly
+          name: radarr
+          ports:
+            - containerPort: 7878
+          volumeMounts:
+            - mountPath: /config
+              name: radarr-data
+            - mountPath: /media
+              name: media
+          env:
+            - name: PUID
+              value: "{{ .Values.global.uid }}"
+            - name: PGID
+              value: "{{ .Values.global.gid }}"
+            - name: TZ
+              value: "{{ .Values.global.timezone }}"
+            - name: UMASK
+              value: "{{ .Values.global.umask }}"
+      volumes:
+        - name: media
+          persistentVolumeClaim:
+            claimName: media-center-pvc
+        - name: radarr-data
+          persistentVolumeClaim:
+            claimName: media-center-radarr-config-pvc
+      restartPolicy: Always
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sonarr
+  namespace: media-center
+  labels:
+    app: media-center
+    component: sonarr
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: media-center
+      component: sonarr
+  template:
+    metadata:
+      labels:
+        app: media-center
+        component: sonarr
+    spec:
+      containers:
+        - image: linuxserver/sonarr:latest
+          name: sonarr
+          ports:
+            - containerPort: 8989
+          volumeMounts:
+            - mountPath: /config
+              name: sonarr-data
+            - mountPath: /media
+              name: media
+          env:
+            - name: PUID
+              value: "{{ .Values.global.uid }}"
+            - name: PGID
+              value: "{{ .Values.global.gid }}"
+            - name: TZ
+              value: "{{ .Values.global.timezone }}"
+            - name: UMASK
+              value: "{{ .Values.global.umask }}"
+      volumes:
+        - name: media
+          persistentVolumeClaim:
+            claimName: media-center-pvc
+        - name: sonarr-data
+          persistentVolumeClaim:
+            claimName: media-center-sonarr-config-pvc
+      restartPolicy: Always
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: searcharr
+  namespace: media-center
+  labels:
+    app: media-center
+    component: searcharr
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: media-center
+      component: searcharr
+  template:
+    metadata:
+      labels:
+        app: media-center
+        component: searcharr
+    spec:
+      containers:
+        - image: toddrob/searcharr:latest
+          name: searcharr
+          volumeMounts:
+            - mountPath: /app/data
+              name: searcharr-data
+            - mountPath: /app/settings.py
+              name: searcharr-settings
+              subPath: settings.py
+          env:
+            - name: PUID
+              value: "{{ .Values.global.uid }}"
+            - name: PGID
+              value: "{{ .Values.global.gid }}"
+            - name: TZ
+              value: "{{ .Values.global.timezone }}"
+            - name: UMASK
+              value: "{{ .Values.global.umask }}"
+      volumes:
+        - name: searcharr-data
+          persistentVolumeClaim:
+            claimName: media-center-searcharr-data-pvc
+        - name: searcharr-settings
+          configMap:
+            name: searcharr-config
+      restartPolicy: Always

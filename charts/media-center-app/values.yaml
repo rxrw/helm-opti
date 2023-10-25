@@ -1,0 +1,14 @@
+nfs:
+  media:
+    server: 'qh.crti.cn'
+    path: '/volume1/media'
+  data:
+    server: 'nfser'
+    path: '/mnt/data/media-center'
+flexget:
+  webuiPassword: 'wai3.1415926'
+global:
+  uid: '1027'
+  gid: '100'
+  timezone: Asia/Shanghai
+  umask: '022'
