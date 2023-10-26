@@ -1,0 +1,11 @@
+nfs:
+  data:
+    server: 'nfser'
+    path: '/mnt/data/downloader'
+auth:
+  webuiPassword: 'wai3.1415926'
+global:
+  uid: '1027'
+  gid: '100'
+  timezone: Asia/Shanghai
+  umask: '022'

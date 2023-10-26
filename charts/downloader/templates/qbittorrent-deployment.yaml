@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: qbittorrent
+  namespace: media-center
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: media-center
+      component: qbittorrent
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: media-center
+        component: qbittorrent
+    spec:
+      containers:
+        - env:
+            - name: PASS
+              value: {{ .Values.auth.webuiPassword }}
+            - name: PGID
+              value: {{ .Values.global.gid }}
+            - name: PUID
+              value: {{ .Values.global.uid }}
+            - name: TZ
+              value: {{ .Values.global.timezone }}
+            - name: UMASK
+              value: {{ .Values.global.umask }}
+            - name: USER
+              value: sky
+            - name: WEBUI_PORT
+              value: "8080"
+          image: linuxserver/qbittorrent
+          name: qbittorrent
+          ports:
+            - containerPort: 44601
+              hostPort: 44601
+              protocol: TCP
+            - containerPort: 44601
+              hostPort: 44601
+              protocol: UDP
+            - containerPort: 8080
+              hostPort: 8080
+              protocol: TCP
+          resources: {}
+          volumeMounts:
+            - mountPath: /config
+              name: qbittorrent-config
+            - mountPath: /media
+              name: media
+      restartPolicy: Always
+      volumes:
+        - name: qbittorrent-config
+          persistentVolumeClaim:
+            claimName: qbittorrent-config-pvc
+        - name: media
+          persistentVolumeClaim:
+            claimName: media-center-pvc
+status: {}

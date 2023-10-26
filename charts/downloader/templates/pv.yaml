@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: qbittorrent-config-pv
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  nfs:
+    path: '{{ .Values.nfs.data.path }}/qbittorrent'
+    server: '{{ .Values.nfs.data.server }}'
+
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: transmission-config-pv
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  nfs:
+    path: '{{ .Values.nfs.data.path }}/transmission'
+    server: '{{ .Values.nfs.data.server }}'

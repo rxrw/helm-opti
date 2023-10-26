@@ -1,0 +1,61 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: transmission
+  namespace: media-center
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: media-center
+      component: transmission
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: media-center
+        component: transmission
+    spec:
+      containers:
+        - env:
+            - name: PASS
+              value: {{ .Values.auth.webuiPassword }}
+            - name: PGID
+              value: {{ .Values.global.gid }}
+            - name: PUID
+              value: {{ .Values.global.uid }}
+            - name: TRANSMISSION_WEB_HOME
+              value: /transmission-web-control/
+            - name: TZ
+              value: {{ .Values.global.timezone }}
+            - name: UMASK
+              value: {{ .Values.global.umask }}
+            - name: USER
+              value: sky
+          image: linuxserver/transmission
+          name: transmission
+          ports:
+            - containerPort: 9091
+              hostPort: 9091
+              protocol: TCP
+            - containerPort: 51413
+              hostPort: 51413
+              protocol: TCP
+            - containerPort: 51413
+              hostPort: 51413
+              protocol: UDP
+          resources: {}
+          volumeMounts:
+            - mountPath: /config
+              name: transmission-config
+            - mountPath: /media
+              name: media
+      restartPolicy: Always
+      volumes:
+        - name: transmission-config
+          persistentVolumeClaim:
+            claimName: transmission-config-pvc
+        - name: media
+          persistentVolumeClaim:
+            claimName: media-center-pvc
