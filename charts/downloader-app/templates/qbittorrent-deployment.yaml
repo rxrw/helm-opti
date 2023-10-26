@@ -19,33 +19,28 @@ spec:
     spec:
       containers:
         - env:
-            - name: PASS
-              value: {{ .Values.auth.webuiPassword }}
             - name: PGID
-              value: {{ .Values.global.gid }}
+              value: "{{ .Values.global.gid }}"
             - name: PUID
-              value: {{ .Values.global.uid }}
+              value: "{{ .Values.global.uid }}"
             - name: TZ
-              value: {{ .Values.global.timezone }}
+              value: "{{ .Values.global.timezone }}"
             - name: UMASK
-              value: {{ .Values.global.umask }}
-            - name: USER
-              value: sky
+              value: "{{ .Values.global.umask }}"
             - name: WEBUI_PORT
               value: "8080"
-          image: linuxserver/qbittorrent
+          image: ghcr.io/linuxserver/qbittorrent
           name: qbittorrent
           ports:
-            - containerPort: 44601
-              hostPort: 44601
+            - containerPort: 6881
+              hostPort: 6881
               protocol: TCP
-            - containerPort: 44601
-              hostPort: 44601
+            - containerPort: 6881
+              hostPort: 6881
               protocol: UDP
             - containerPort: 8080
               hostPort: 8080
               protocol: TCP
-          resources: {}
           volumeMounts:
             - mountPath: /config
               name: qbittorrent-config
@@ -59,4 +54,3 @@ spec:
         - name: media
           persistentVolumeClaim:
             claimName: media-center-pvc
-status: {}

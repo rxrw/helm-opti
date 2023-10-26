@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: transmission
+  name: transmission-web
   namespace: media-center
 spec:
   ports:
@@ -15,20 +15,20 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: transmission
+  name: transmission-direct
   namespace: media-center
 spec:
-  type: NodePort
   ports:
-    - name: tcp-51413
-      port: 51413
-      targetPort: 51413
+    - name: tcp-6881
+      port: 6881
+      targetPort: 6881
       nodePort: 32013
-    - name: udp-51413
-      port: 51413
+    - name: udp-6881
+      port: 6881
       protocol: UDP
-      targetPort: 51413
+      targetPort: 6881
       nodePort: 32013
+  type: NodePort
   selector:
     app: media-center
     component: transmission

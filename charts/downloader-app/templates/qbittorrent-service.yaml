@@ -28,7 +28,7 @@ spec:
       protocol: UDP
       targetPort: 44601
       NodePort: 32061
-  kind: NodePort
+  type: NodePort
   selector:
     app: media-center
     component: qbittorrent

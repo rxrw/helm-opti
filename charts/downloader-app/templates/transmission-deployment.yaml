@@ -20,20 +20,20 @@ spec:
       containers:
         - env:
             - name: PASS
-              value: {{ .Values.auth.webuiPassword }}
+              value: "{{ .Values.auth.webuiPassword }}"
             - name: PGID
-              value: {{ .Values.global.gid }}
+              value: "{{ .Values.global.gid }}"
             - name: PUID
-              value: {{ .Values.global.uid }}
+              value: "{{ .Values.global.uid }}"
             - name: TRANSMISSION_WEB_HOME
               value: /transmission-web-control/
             - name: TZ
-              value: {{ .Values.global.timezone }}
+              value: "{{ .Values.global.timezone }}"
             - name: UMASK
-              value: {{ .Values.global.umask }}
+              value: "{{ .Values.global.umask }}"
             - name: USER
               value: sky
-          image: linuxserver/transmission
+          image: ghcr.io/linuxserver/transmission
           name: transmission
           ports:
             - containerPort: 9091
