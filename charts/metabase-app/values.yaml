@@ -1,0 +1,11 @@
+metabase:
+  # Database name
+  dbName: metabase
+  # Database host
+  dbHost: postgres-postgresql.postgres.svc.cluster.local
+  # Database password
+  dbPassword: metabase
+  # Database type
+  dbType: postgres
+  # Database user
+  dbUser: metabase

@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: metabase
+  namespace: metabase
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: metabase
+      component: metabase
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: metabase
+        component: metabase
+    spec:
+      containers:
+        - env:
+            - name: MB_DB_DBNAME
+              value: {{ .Values.metabase.dbName }}
+            - name: MB_DB_HOST
+              value: {{ .Values.metabase.dbHost }}
+            - name: MB_DB_PASS
+              value: {{ .Values.metabase.dbPassword }}
+            - name: MB_DB_TYPE
+              value: {{ .Values.metabase.dbType }}
+            - name: MB_DB_USER
+              value: {{ .Values.metabase.dbUser }}
+            - name: MB_PLUGINS_DIR
+              value: /app/plugins
+          image: metabase/metabase
+          name: metabase
+          volumeMounts:
+            - mountPath: /app/plugins
+              name: metabase-plugins
+          ports:
+            - containerPort: 3000
+              name: app
+              protocol: TCP
+      restartPolicy: Always
+      volumes:
+        - name: metabase-plugins
+          persistentVolumeClaim:
+            claimName: metabase-plugins-pvc
