@@ -11,24 +11,3 @@ spec:
   selector:
     app: media-center
     component: qbittorrent
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: qbittorrent-direct
-  namespace: media-center
-spec:
-  ports:
-    - name: tcp-44601
-      port: 44601
-      targetPort: 44601
-      NodePort: 32061
-    - name: udp-44601
-      port: 44601
-      protocol: UDP
-      targetPort: 44601
-      NodePort: 32061
-  type: NodePort
-  selector:
-    app: media-center
-    component: qbittorrent

@@ -25,27 +25,26 @@ spec:
               value: "{{ .Values.global.gid }}"
             - name: PUID
               value: "{{ .Values.global.uid }}"
-            - name: TRANSMISSION_WEB_HOME
-              value: /transmission-web-control/
             - name: TZ
               value: "{{ .Values.global.timezone }}"
             - name: UMASK
               value: "{{ .Values.global.umask }}"
             - name: USER
               value: sky
+            - name: PEERPORT
+              value: "32013"
           image: ghcr.io/linuxserver/transmission
           name: transmission
           ports:
             - containerPort: 9091
               hostPort: 9091
               protocol: TCP
-            - containerPort: 51413
-              hostPort: 51413
+            - containerPort: 32013
+              hostPort: 32013
               protocol: TCP
-            - containerPort: 51413
+            - containerPort: 32013
               hostPort: 51413
               protocol: UDP
-          resources: {}
           volumeMounts:
             - mountPath: /config
               name: transmission-config

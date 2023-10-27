@@ -11,24 +11,3 @@ spec:
   selector:
     app: media-center
     component: transmission
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: transmission-direct
-  namespace: media-center
-spec:
-  ports:
-    - name: tcp-6881
-      port: 6881
-      targetPort: 6881
-      nodePort: 32013
-    - name: udp-6881
-      port: 6881
-      protocol: UDP
-      targetPort: 6881
-      nodePort: 32013
-  type: NodePort
-  selector:
-    app: media-center
-    component: transmission
