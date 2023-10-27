@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: browserless-direct
+  namespace: browserless
+spec:
+  ports:
+    - name: browserless-direct
+      port: 3000
+      nodePort: 30021
+  type: NodePort
+  selector:
+    app: browserless
+    component: chrome
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: browserless
+  namespace: browserless
+spec:
+  ports:
+    - name: browserless-core
+      port: 3000
+  selector:
+    app: browserless
+    component: chrome
