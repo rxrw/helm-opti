@@ -1,0 +1,3 @@
+browserless:
+  token: wai31415926
+  maxConcurrentSessions: 10
