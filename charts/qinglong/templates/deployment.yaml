@@ -1,33 +1,33 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ddns-go
+  name: qinglong
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: helpers
-      component: ddns-go
+      app: qinglong
+      component: dashboard
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: helpers
-        component: ddns-go
+        app: qinglong
+        component: dashboard
     spec:
       containers:
-        - image: jeessy/ddns-go
-          name: ddns-go
+        - image: whyour/qinglong
+          name: qinglong
           ports:
-            - containerPort: 9876
+            - containerPort: 5700
               name: app
               protocol: TCP
           volumeMounts:
-            - mountPath: /root
-              name: config
+            - mountPath: /ql/data
+              name: ql-data
       volumes:
-        - name: config
+        - name: ql-data
           persistentVolumeClaim:
-            claimName: ddns-go-config-pvc
+            claimName: qinglong-data-pvc
       restartPolicy: Always
