@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: browserless
-  namespace: browserless
 spec:
   replicas: 1
   selector:
@@ -23,7 +22,7 @@ spec:
               value: {{ .Values.browserless.maxConcurrentSessions | quote }}
             - name: TOKEN
               value: {{ .Values.browserless.token | quote }}
-          image: ghcr.io/browserless/chrome
+          image: browserless/chrome
           name: browserless-chrome
           ports:
             - containerPort: 3000
