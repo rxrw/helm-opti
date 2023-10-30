@@ -20,7 +20,7 @@ data:
     searcharr_users_command_aliases = ["users"]  # Override /users command
 
     # Telegram
-    tgram_token = ""
+    tgram_token = "{{ .Values.searcharr.tgBotToken }}"  # Telegram Bot Token
 
     # Sonarr
     sonarr_enabled = True
