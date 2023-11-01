@@ -1,0 +1,4 @@
+nfs:
+  config:
+    server: 'nfser'
+    path: '/mnt/data/asf-config'
