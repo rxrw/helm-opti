@@ -1,0 +1,71 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aria2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: helpers
+      component: aria2
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: helpers
+        component: aria2
+    spec:
+      containers:
+        - image: p3terx/aria2-pro
+          name: aria2-pro
+          ports:
+            - containerPort: 6800
+              name: aria2-rpc
+              protocol: TCP
+            - containerPort: 6881
+              name: aria2-dht-udp
+              protocol: UDP
+            - containerPort: 6881
+              name: aria2-dht-tcp
+              protocol: TCP
+          volumeMounts:
+            - mountPath: /config
+              name: config
+            - mountPath: /downloads
+              name: downloads
+          env:
+            - name: PUID
+              value: '1027'
+            - name: PGID
+              value: '100'
+            - name: UMASK_SET
+              value: '022'
+            - name: RPC_SECRET
+              value: {{ .Values.aria2.secret | quote }}
+            - name: RPC_PORT
+              value: '6800'
+            - name: LISTEN_PORT
+              value: {{ .Values.aria2.btPort | quote }}
+            - name: DISK_CACHE
+              value: '64M'
+            - name: IPV6_MODE
+              value: 'false'
+            - name: UPDATE_TRACKERS
+              value: 'true'
+            - name: TZ
+              value: 'Asia/Shanghai'
+        - image: p3terx/ariang
+          name: ariang
+          ports:
+            - containerPort: 6880
+              name: ariang
+              protocol: TCP
+      volumes:
+        - name: config
+          persistentVolumeClaim:
+            claimName: aria2pro-config-pvc
+        - name: downloads
+          persistentVolumeClaim:
+            claimName: aria2pro-downloads-pvc
+      restartPolicy: Always

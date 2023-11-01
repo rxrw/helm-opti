@@ -1,0 +1,10 @@
+aria2:
+  secret: 'wai31415926'
+  btPort: '6881'
+nfs:
+  data:
+    server: 'nfser'
+    path: '/mnt/data/aria2pro-config'
+  downloads:
+    server: 'qh.crti.cn'
+    path: '/volume1/media/downloads/aria'

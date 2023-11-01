@@ -1,0 +1,51 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: aria2ng-web
+spec:
+  ports:
+    - name: web
+      port: 6880
+  selector:
+    app: helpers
+    component: aria2
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: aria2pro-rpc
+spec:
+  ports:
+    - name: rpc
+      port: 6800
+  selector:
+    app: helpers
+    component: aria2
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: aria2pro-dht
+spec:
+  ports:
+    - name: dht-udp
+      port: 6881
+      containerPort: 6881
+      protocol: UDP
+  selector:
+    app: helpers
+    component: aria2
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: aria2pro-dht-tcp
+spec:
+  ports:
+    - name: dht-tcp
+      port: 6881
+      containerPort: 6881
+      protocol: TCP
+  selector:
+    app: helpers
+    component: aria2
