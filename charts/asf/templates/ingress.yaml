@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   name: asf-web
   annotations:
-    traefik.ingress.kubernetes.io/router.entrypoints: web
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
 spec:
   rules:
     - host: asf.opti.io
