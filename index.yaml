@@ -3,6 +3,17 @@ entries:
   aria2:
   - apiVersion: v2
     appVersion: "1"
+    created: "2023-11-07T08:58:38.083855303Z"
+    description: A Helm chart for aria2
+    digest: 73bdded31fcb82ba77c58b99e170aa5c1a3dce4603e0c763b715add10292a1c1
+    icon: https://trakt.tv/assets/logos/white-bg@2x-626e9680c03d0542b3e26c3305f58050d2178e5d4222fac7831d83cf37fef42b.png
+    name: aria2
+    type: application
+    urls:
+    - https://github.com/rxrw/helm-opti/releases/download/aria2-0.2.3/aria2-0.2.3.tgz
+    version: 0.2.3
+  - apiVersion: v2
+    appVersion: "1"
     created: "2023-11-01T09:22:51.654587962Z"
     description: A Helm chart for aria2
     digest: 30146a297afa3a6e6c13e07b846e4344b9563cce2275197ede778e875633ae59
@@ -68,6 +79,17 @@ entries:
     - https://github.com/rxrw/helm-opti/releases/download/aria2-0.1.0/aria2-0.1.0.tgz
     version: 0.1.0
   asf:
+  - apiVersion: v2
+    appVersion: "1"
+    created: "2023-11-07T08:58:38.334001381Z"
+    description: A Helm chart for asf
+    digest: 7f9c5efe785fdfe0d52b749e80d91dbfb8743f5c02b352bd4a73cbee32c21eb3
+    icon: https://trakt.tv/assets/logos/white-bg@2x-626e9680c03d0542b3e26c3305f58050d2178e5d4222fac7831d83cf37fef42b.png
+    name: asf
+    type: application
+    urls:
+    - https://github.com/rxrw/helm-opti/releases/download/asf-0.1.3/asf-0.1.3.tgz
+    version: 0.1.3
   - apiVersion: v2
     appVersion: "1"
     created: "2023-11-01T10:08:15.939321042Z"
@@ -182,6 +204,17 @@ entries:
   ddns-go:
   - apiVersion: v2
     appVersion: "1"
+    created: "2023-11-07T08:58:38.552378322Z"
+    description: A Helm chart for ddns-go
+    digest: 90dc2342cdce64e5dc464dbcdd0a4de5bbe954b15ffa4ccf4fee7d8a37bdf580
+    icon: https://trakt.tv/assets/logos/white-bg@2x-626e9680c03d0542b3e26c3305f58050d2178e5d4222fac7831d83cf37fef42b.png
+    name: ddns-go
+    type: application
+    urls:
+    - https://github.com/rxrw/helm-opti/releases/download/ddns-go-0.1.5/ddns-go-0.1.5.tgz
+    version: 0.1.5
+  - apiVersion: v2
+    appVersion: "1"
     created: "2023-10-28T18:09:49.147840246Z"
     description: A Helm chart for ddns-go
     digest: 5d8f6c1672d41e77d13eb90a5ea30df1b1109e7ba04cef9821218f7f39c77dbb
@@ -238,6 +271,17 @@ entries:
   downloader-app:
   - apiVersion: v2
     appVersion: "1"
+    created: "2023-11-07T08:58:38.761290936Z"
+    description: A Helm chart for downloader with NFS as persistent storage
+    digest: ce7ef3add3209bb610fedd26e79f29dd68731ba97f16a0441f61cff4632d749a
+    icon: https://trakt.tv/assets/logos/white-bg@2x-626e9680c03d0542b3e26c3305f58050d2178e5d4222fac7831d83cf37fef42b.png
+    name: downloader-app
+    type: application
+    urls:
+    - https://github.com/rxrw/helm-opti/releases/download/downloader-app-0.1.5/downloader-app-0.1.5.tgz
+    version: 0.1.5
+  - apiVersion: v2
+    appVersion: "1"
     created: "2023-10-27T01:42:19.797367707Z"
     description: A Helm chart for downloader with NFS as persistent storage
     digest: 3e62c34e04b2d79e28c90ac646eb2c5f9ba2895748d3d58a1b8ed1e76e65dcb9
@@ -270,6 +314,17 @@ entries:
     - https://github.com/rxrw/helm-opti/releases/download/downloader-app-0.1.0/downloader-app-0.1.0.tgz
     version: 0.1.0
   media-center-app:
+  - apiVersion: v2
+    appVersion: "1"
+    created: "2023-11-07T08:58:38.95148323Z"
+    description: A Helm chart for Media Center with NFS as persistent storage
+    digest: c3e7da375d79b03180defa6079ccfc12127ebe4048cf22a2cf370b208b783733
+    icon: https://trakt.tv/assets/logos/white-bg@2x-626e9680c03d0542b3e26c3305f58050d2178e5d4222fac7831d83cf37fef42b.png
+    name: media-center-app
+    type: application
+    urls:
+    - https://github.com/rxrw/helm-opti/releases/download/media-center-app-1.1.2/media-center-app-1.1.2.tgz
+    version: 1.1.2
   - apiVersion: v2
     appVersion: "1"
     created: "2023-10-31T02:48:23.630947782Z"
@@ -317,6 +372,17 @@ entries:
   metabase-app:
   - apiVersion: v2
     appVersion: "1"
+    created: "2023-11-07T08:58:39.135355409Z"
+    description: A Helm chart for metabase
+    digest: 4a605bee20d8b4e19002d19bf5efca9439087b3ac4d1dbba52aa1682370d741a
+    icon: https://trakt.tv/assets/logos/white-bg@2x-626e9680c03d0542b3e26c3305f58050d2178e5d4222fac7831d83cf37fef42b.png
+    name: metabase-app
+    type: application
+    urls:
+    - https://github.com/rxrw/helm-opti/releases/download/metabase-app-0.1.4/metabase-app-0.1.4.tgz
+    version: 0.1.4
+  - apiVersion: v2
+    appVersion: "1"
     created: "2023-11-03T06:32:41.71887442Z"
     description: A Helm chart for metabase
     digest: 380ed5da52c56b6361a398214eb70d5e7fe9ac4eafaf4bc14fb6e0edf2baee63
@@ -362,6 +428,17 @@ entries:
   qinglong:
   - apiVersion: v2
     appVersion: "1"
+    created: "2023-11-07T08:58:39.340494037Z"
+    description: A Helm chart for qinglong
+    digest: 2458668e388287e0af307e86e2218c967e7abc2bbb047bbfe46997d357c41a8a
+    icon: https://trakt.tv/assets/logos/white-bg@2x-626e9680c03d0542b3e26c3305f58050d2178e5d4222fac7831d83cf37fef42b.png
+    name: qinglong
+    type: application
+    urls:
+    - https://github.com/rxrw/helm-opti/releases/download/qinglong-0.1.3/qinglong-0.1.3.tgz
+    version: 0.1.3
+  - apiVersion: v2
+    appVersion: "1"
     created: "2023-10-28T18:09:49.3080847Z"
     description: A Helm chart for qinglong
     digest: 20a02cf5df3821961368b7848df0a229a8f80e8bcb7fb3164f5b25954506a29a
@@ -382,4 +459,4 @@ entries:
     urls:
     - https://github.com/rxrw/helm-opti/releases/download/qinglong-0.1.0/qinglong-0.1.0.tgz
     version: 0.1.0
-generated: "2023-11-03T06:32:41.719183832Z"
+generated: "2023-11-07T08:58:39.34060265Z"
