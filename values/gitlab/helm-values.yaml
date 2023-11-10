@@ -60,7 +60,7 @@ global:
     allowClusterRoles: true
   ## https://docs.gitlab.com/charts/charts/globals#configure-host-settings
   hosts:
-    domain: example.com
+    domain: git.io
     hostSuffix:
     https: true
     externalIP:
@@ -76,13 +76,13 @@ global:
   ## https://docs.gitlab.com/charts/charts/globals#configure-ingress-settings
   ingress:
     apiVersion: ""
-    configureCertmanager: true
-    provider: nginx
+    configureCertmanager: false
+    # provider: traefik
     # class:
     annotations: {}
     enabled: true
-    tls: {}
-    #   enabled: true
+    tls:
+      enabled: false
     #   secretName:
     path: /
     pathType: Prefix
@@ -131,26 +131,26 @@ global:
     keepalivesInterval:
     keepalivesCount:
     tcpUserTimeout:
-    password: {}
-      # useSecret:
-      # secret:
-      # key:
-      # file:
-    # host: postgresql.hostedsomewhere.else
-    # port: 123
-    # username: gitlab
-    # database: gitlabhq_production
-    # applicationName:
-    # preparedStatements: false
-    # databaseTasks: true
+    password:
+      useSecret: true
+      secret: gitlab-postgresql-password
+      key: password
+      file:
+    host: postgres-postgresql.postgres.svc.cluster.local
+    port: 5432
+    username: gitlab
+    database: gitlab
+    applicationName:
+    preparedStatements: false
+    databaseTasks: true
 
   ## https://docs.gitlab.com/charts/charts/globals#configure-redis-settings
   redis:
     auth:
       enabled: true
-      # secret:
-      # key:
-    # host: redis.hostedsomewhere.else
+      secret: gitlab-redis-password
+      key: password
+    host: redis-master.redis.svc.cluster.local
     # port: 6379
     # user: webservice
     # sentinels:
@@ -717,7 +717,7 @@ global:
       certName: "tls.crt"
 
   ## Timezone for containers.
-  time_zone: UTC
+  time_zone: Asia/Shanghai
 
   ## Global Service Annotations and Labels
   service:
@@ -867,11 +867,11 @@ upgradeCheck:
 ## Installation & configuration of jetstack/cert-manager
 ## See requirements.yaml for current version
 certmanager:
-  installCRDs: true
+  installCRDs: false
   nameOverride: certmanager
   # Install cert-manager chart. Set to false if you already have cert-manager
   # installed or if you are not using cert-manager.
-  install: true
+  install: false
   # Other cert-manager configurations from upstream
   # See https://github.com/jetstack/cert-manager/blob/master/deploy/charts/cert-manager/README#configuration
   rbac:
@@ -881,7 +881,7 @@ certmanager:
 ## https://docs.gitlab.com/charts/architecture/decisions#nginx-ingress
 ## Installation & configuration of charts/ingress-nginx:
 nginx-ingress: &nginx-ingress
-  enabled: true
+  enabled: false
   tcpExternalConfig: "true"
   controller: &nginx-ingress-controller
     addHeaders:
@@ -1123,7 +1123,7 @@ prometheus:
 ## https://docs.gitlab.com/charts/architecture/decisions#redis
 ## https://docs.gitlab.com/charts/installation/deployment.html#redis
 redis:
-  install: true
+  install: false
   auth:
     existingSecret: gitlab-redis-secret
     existingSecretKey: redis-password
@@ -1137,7 +1137,7 @@ redis:
 ## Installation & configuration of stable/prostgresql
 ## See requirements.yaml for current version
 postgresql:
-  install: true
+  install: false
   auth:
     ## These need to be set, for the sake of bitnami/postgresql upgrade patterns.
     ## They are overridden by use of `existingSecret`
