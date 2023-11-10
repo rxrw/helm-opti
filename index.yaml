@@ -204,6 +204,17 @@ entries:
   ddns-go:
   - apiVersion: v2
     appVersion: "1"
+    created: "2023-11-10T09:02:35.752096921Z"
+    description: A Helm chart for ddns-go
+    digest: 451b6c14e66e2f537f08e3bdf64b39dfb4697c18acb4e4ef660c79dc959c1cab
+    icon: https://trakt.tv/assets/logos/white-bg@2x-626e9680c03d0542b3e26c3305f58050d2178e5d4222fac7831d83cf37fef42b.png
+    name: ddns-go
+    type: application
+    urls:
+    - https://github.com/rxrw/helm-opti/releases/download/ddns-go-0.1.6/ddns-go-0.1.6.tgz
+    version: 0.1.6
+  - apiVersion: v2
+    appVersion: "1"
     created: "2023-11-07T08:58:38.552378322Z"
     description: A Helm chart for ddns-go
     digest: 90dc2342cdce64e5dc464dbcdd0a4de5bbe954b15ffa4ccf4fee7d8a37bdf580
@@ -459,4 +470,4 @@ entries:
     urls:
     - https://github.com/rxrw/helm-opti/releases/download/qinglong-0.1.0/qinglong-0.1.0.tgz
     version: 0.1.0
-generated: "2023-11-07T08:58:39.34060265Z"
+generated: "2023-11-10T09:02:35.752180921Z"
