@@ -1,0 +1,14 @@
+alertmanager:
+  ingress:
+    enabled: true
+    hosts:
+      - alertmanager.opti.io
+    paths:
+      - /
+
+grafana:
+  ingress:
+    enabled: true
+    hosts:
+      - grafana.opti.io
+    path: /

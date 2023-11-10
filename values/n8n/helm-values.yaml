@@ -1,0 +1,50 @@
+n8n:
+  encryption_key: "QK1LCdVJGO3ZXXKcG+Gx/ouqmnjW+VPO"
+
+config:
+  database:
+    type:             postgresdb
+    postgresdb:
+      database:       n8n
+      host:           postgres-postgresql.postgres.svc.cluster.local
+      password:       n8n8n8n8n
+      user:           n8n
+
+generic:
+  timezone:     Asia/Shanghai
+host:         n8n.opti.io
+extraEnv:
+  WEBHOOK_TUNNEL_URL: "https://n8n.opti.io/"
+
+image:
+  tag: "1.14.2"
+
+persistence:
+  enabled: true
+  type: dynamic
+  accessModes:
+    - ReadWriteOnce
+  size: 1Gi
+
+ingress:
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+  enabled: true
+  hosts:
+    - host: n8n.opti.io
+      paths:
+        - "/"
+
+autoscaling:
+  enabled: true
+  minReplicas: 1
+  maxReplicas: 3
+
+scaling:
+  enabled: true
+  webhook:
+    enabled: true
+
+  redis:
+    host: redis-master.redis.svc.cluster.local
+    password: wai31415926

@@ -1,0 +1,112 @@
+image:
+  tag: "v3.0.0-beta4"
+
+deployment:
+  replicas: null
+
+# -- Create a default IngressClass for Traefik
+ingressClass:
+  enabled: true
+  isDefaultClass: true
+
+experimental:
+  plugins:
+    # -- Enable traefik experimental plugins
+    enabled: true
+
+logs:
+  access:
+    enabled: true
+
+globalArguments:
+- "--global.checknewversion"
+
+ports:
+  traefik:
+    port: 9000
+  web:
+    redirectTo:
+      port: websecure
+    forwardedHeaders:
+      trustedIPs: ["127.0.0.1/32","192.168.8.0/24","172.20.0.0/16"]
+      insecure: true
+  websecure:
+    asDefault: true
+    appProtocol: https
+    http3:
+      enabled: true
+    # advertisedPort: 4443
+    #
+    ## -- Trust forwarded  headers information (X-Forwarded-*).
+    forwardedHeaders:
+      trustedIPs: ["127.0.0.1/32","192.168.8.0/24","172.20.0.0/16"]
+      insecure: true
+
+tlsOptions: {}
+
+tlsStore:
+  default:
+    defaultCertificate:
+      secretName: traefik-default-cert
+
+autoscaling:
+  # -- Create HorizontalPodAutoscaler object.
+  enabled: true
+  minReplicas: 1
+  maxReplicas: 3
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 60
+  - type: Resource
+    resource:
+      name: memory
+      target:
+        type: Utilization
+        averageUtilization: 60
+  behavior:
+    scaleDown:
+      stabilizationWindowSeconds: 300
+      policies:
+      - type: Pods
+        value: 1
+        periodSeconds: 60
+
+# Create an IngressRoute for the dashboard
+ingressRoute:
+  dashboard:
+    enabled: true
+    matchRule: Host(`traefik.opti.io`)
+    entryPoints: ["websecure"]
+    middlewares:
+      - name: traefik-dashboard-auth
+
+extraObjects:
+  - apiVersion: v1
+    kind: Secret
+    metadata:
+      name: traefik-dashboard-auth-secret
+    type: kubernetes.io/basic-auth
+    stringData:
+      username: sky
+      password: wai31415926
+
+  - apiVersion: traefik.io/v1alpha1
+    kind: Middleware
+    metadata:
+      name: traefik-dashboard-auth
+    spec:
+      basicAuth:
+        secret: traefik-dashboard-auth-secret
+
+# -- The resources parameter defines CPU and memory requirements and limits for Traefik's containers.
+resources:
+  requests:
+    cpu: "100m"
+    memory: "50Mi"
+  limits:
+    cpu: "300m"
+    memory: "150Mi"

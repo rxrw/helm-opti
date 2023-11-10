@@ -1,0 +1,18 @@
+credentials:
+  root:
+    user: root
+    password: wai31415926
+    host: "%"
+
+tls:
+  useSelfSigned: false
+
+serverInstances: 3
+routerInstances: 1 # or use router.instances
+baseServerId: 1000
+
+datadirVolumeClaimTemplate:
+ accessModes: ReadWriteOnce
+ resources:
+   requests:
+     storage: 64Gi

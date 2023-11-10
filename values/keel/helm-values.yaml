@@ -1,0 +1,102 @@
+# Default values for keel.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+image:
+  repository: keelhq/keel
+  tag: null
+  pullPolicy: Always
+
+# Enable insecure registries
+insecureRegistry: false
+
+# Polling is enabled by default,
+# you can disable it setting value below to false
+polling:
+  enabled: true
+  defaultSchedule: "@hourly"
+
+# Helm provider support
+helmProvider:
+  enabled: true
+  # set to version "v3" for Helm v3
+  version: "v3"
+
+# Notification level (debug, info, success, warn, error, fatal)
+notificationLevel: info
+
+# Slack Notification
+# bot name (default keel) must exist!
+slack:
+  enabled: true
+  botName: "k8s"
+  token: "xoxb-5335805087058-6115363170564-Dl2F439vsFixNU7LHGC6Kcos"
+  channel: "k8s-notifications"
+  approvalsChannel: "k8s-notifications"
+
+# Keel self-update
+# uncomment lines below if you want Keel to automaticly
+# self-update to the latest release version
+keel:
+  # keel policy (all/major/minor/patch/force)
+  policy: patch
+  # trigger type, defaults to events such as pubsub, webhooks
+  trigger: poll
+  # polling schedule
+  pollSchedule: "@hourly"
+  # images to track and update
+  images:
+    - repository: image.repository
+      tag: image.tag
+
+# RBAC manifests management
+rbac:
+  enabled: true
+  serviceAccount:
+    # Kubernetes service account name to be used for ClusterRoleBinding and Deployment.
+    # name:
+    # Create a new Kubernetes service account automatically. Set to false if you want to use your own service account.
+    # If rbac.serviceAccount.name is not set, a new name for the service account is generated
+    create: true
+
+# Resources
+resources:
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 50m
+    memory: 64Mi
+
+# Basic auth on approvals
+basicauth:
+  enabled: true
+  user: "sky"
+  password: "wai31415926"
+
+# Keel service
+# Enable to receive webhooks from Docker registries
+service:
+  enabled: true
+  type: ClusterIP
+  externalPort: 9300
+
+ingress:
+  enabled: true
+  labels: {}
+  annotations: {}
+#    kubernetes.io/ingress.class: nginx
+#    kubernetes.io/tls-acme: "true"
+  hosts:
+   - host: keel.opti.io
+     paths:
+       - /
+  tls: []
+#    - secretName: chart-example-tls
+#      hosts:
+#        - chart-example.local
+
+persistence:
+  enabled: true
+  storageClass: "nfs-client"
+  size: 1Gi
