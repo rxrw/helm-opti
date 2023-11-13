@@ -122,3 +122,21 @@ spec:
   selector:
     app: media-center
     component: sonarr
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: media-center
+    component: whisparr
+  name: whisparr
+  namespace: media-center
+spec:
+  ports:
+    - name: app
+      port: 6969
+      targetPort: 6969
+  selector:
+    app: media-center
+    component: whisparr

@@ -174,7 +174,7 @@ spec:
         component: prowlarr
     spec:
       containers:
-        - image: linuxserver/prowlarr:develop
+        - image: linuxserver/prowlarr:nightly
           name: prowlarr
           ports:
             - containerPort: 9696
@@ -192,7 +192,7 @@ spec:
               value: "{{ .Values.global.timezone }}"
             - name: UMASK
               value: "{{ .Values.global.umask }}"
-        - image: flaresolverr/flaresolverr
+        - image: flaresolverr/flaresolverr:v3.3.7
           name: flaresolverr
           ports:
             - containerPort: 8191
@@ -299,6 +299,54 @@ spec:
         - name: sonarr-data
           persistentVolumeClaim:
             claimName: media-center-sonarr-config-pvc
+      restartPolicy: Always
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: whisparr
+  namespace: media-center
+  labels:
+    app: media-center
+    component: whisparr
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: media-center
+      component: whisparr
+  template:
+    metadata:
+      labels:
+        app: media-center
+        component: whisparr
+    spec:
+      containers:
+        - image: hotio/whisparr:latest
+          name: whisparr
+          ports:
+            - containerPort: 6969
+          volumeMounts:
+            - mountPath: /config
+              name: whisparr-config
+            - mountPath: /media
+              name: media
+          env:
+            - name: PUID
+              value: "{{ .Values.global.uid }}"
+            - name: PGID
+              value: "{{ .Values.global.gid }}"
+            - name: TZ
+              value: "{{ .Values.global.timezone }}"
+            - name: UMASK
+              value: "{{ .Values.global.umask }}"
+      volumes:
+        - name: media
+          persistentVolumeClaim:
+            claimName: media-center-pvc
+        - name: whisparr-config
+          persistentVolumeClaim:
+            claimName: media-center-whisparr-config-pvc
       restartPolicy: Always
 ---
 apiVersion: apps/v1

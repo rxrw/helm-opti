@@ -122,3 +122,17 @@ spec:
   resources:
     requests:
       storage: 1Gi
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: media-center-whisparr-config-pvc
+spec:
+  volumeName: media-center-whisparr-config-pv
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: ''
+  resources:
+    requests:
+      storage: 1Gi
