@@ -597,4 +597,15 @@ entries:
     urls:
     - https://github.com/rxrw/helm-opti/releases/download/qinglong-0.1.0/qinglong-0.1.0.tgz
     version: 0.1.0
-generated: "2023-11-20T08:32:34.147305771Z"
+  wakapi:
+  - apiVersion: v2
+    appVersion: 2.9.3
+    created: "2023-11-20T10:17:13.170494492Z"
+    description: A Helm chart for Kubernetes
+    digest: d09b3b7cce46bc56caa78f5afb4b5c6abfb6391faa026b3ea0fcf858c84e5d64
+    name: wakapi
+    type: application
+    urls:
+    - https://github.com/rxrw/helm-opti/releases/download/wakapi-0.1.0/wakapi-0.1.0.tgz
+    version: 0.1.0
+generated: "2023-11-20T10:17:13.170599709Z"
