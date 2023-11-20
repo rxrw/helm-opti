@@ -327,6 +327,16 @@ entries:
   hakatime:
   - apiVersion: v2
     appVersion: v1.7.3
+    created: "2023-11-20T08:27:55.855792771Z"
+    description: A Helm chart for Kubernetes
+    digest: 5a0506e0855120f060e5b5a7943cea4fd9d77249c31693ded88862f7050cdd51
+    name: hakatime
+    type: application
+    urls:
+    - https://github.com/rxrw/helm-opti/releases/download/hakatime-0.1.4/hakatime-0.1.4.tgz
+    version: 0.1.4
+  - apiVersion: v2
+    appVersion: v1.7.3
     created: "2023-11-20T08:22:32.283069653Z"
     description: A Helm chart for Kubernetes
     digest: f52911342472f5a6fea5f72f9229a1e9c2b66c9056c210060c8a7a06915dfc4c
@@ -577,4 +587,4 @@ entries:
     urls:
     - https://github.com/rxrw/helm-opti/releases/download/qinglong-0.1.0/qinglong-0.1.0.tgz
     version: 0.1.0
-generated: "2023-11-20T08:22:32.283174239Z"
+generated: "2023-11-20T08:27:55.855880565Z"
