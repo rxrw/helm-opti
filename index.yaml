@@ -600,6 +600,16 @@ entries:
   wakapi:
   - apiVersion: v2
     appVersion: 2.9.3
+    created: "2023-11-20T10:54:57.136631466Z"
+    description: A Helm chart for Kubernetes
+    digest: e2c57a9123639dea010a084082fbaa27c8ef89958ea44bb8f7c212f9b2ef7118
+    name: wakapi
+    type: application
+    urls:
+    - https://github.com/rxrw/helm-opti/releases/download/wakapi-0.1.3/wakapi-0.1.3.tgz
+    version: 0.1.3
+  - apiVersion: v2
+    appVersion: 2.9.3
     created: "2023-11-20T10:51:49.715411732Z"
     description: A Helm chart for Kubernetes
     digest: b4a1e39784e751555351a72dbb52540f8fff6fdeaa827af8bfd3f99e0460d335
@@ -628,4 +638,4 @@ entries:
     urls:
     - https://github.com/rxrw/helm-opti/releases/download/wakapi-0.1.0/wakapi-0.1.0.tgz
     version: 0.1.0
-generated: "2023-11-20T10:51:49.715520204Z"
+generated: "2023-11-20T10:54:57.136790121Z"
