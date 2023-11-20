@@ -327,6 +327,17 @@ entries:
   media-center-app:
   - apiVersion: v2
     appVersion: "1"
+    created: "2023-11-20T03:24:18.528200725Z"
+    description: A Helm chart for Media Center with NFS as persistent storage
+    digest: c44e1265dd9cbfcb41f6969c8e00f91636abd83191972e7e3dc806123aaa7ae9
+    icon: https://trakt.tv/assets/logos/white-bg@2x-626e9680c03d0542b3e26c3305f58050d2178e5d4222fac7831d83cf37fef42b.png
+    name: media-center-app
+    type: application
+    urls:
+    - https://github.com/rxrw/helm-opti/releases/download/media-center-app-1.2.5/media-center-app-1.2.5.tgz
+    version: 1.2.5
+  - apiVersion: v2
+    appVersion: "1"
     created: "2023-11-13T07:43:10.286422694Z"
     description: A Helm chart for Media Center with NFS as persistent storage
     digest: 2f181849a99e266cf933708d11a6d57aabce7a4b7c3a4edd5133dd3febf461cd
@@ -525,4 +536,4 @@ entries:
     urls:
     - https://github.com/rxrw/helm-opti/releases/download/qinglong-0.1.0/qinglong-0.1.0.tgz
     version: 0.1.0
-generated: "2023-11-13T07:43:10.286544021Z"
+generated: "2023-11-20T03:24:18.528320569Z"
