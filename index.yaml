@@ -324,6 +324,17 @@ entries:
     urls:
     - https://github.com/rxrw/helm-opti/releases/download/downloader-app-0.1.0/downloader-app-0.1.0.tgz
     version: 0.1.0
+  hakatime:
+  - apiVersion: v2
+    appVersion: 1.7.3
+    created: "2023-11-20T06:25:30.568311398Z"
+    description: A Helm chart for Kubernetes
+    digest: 8aa04bb6803430afaa77a153361832fd0e37c95207bc584a90d6dc3d0c45459a
+    name: hakatime
+    type: application
+    urls:
+    - https://github.com/rxrw/helm-opti/releases/download/hakatime-0.1.0/hakatime-0.1.0.tgz
+    version: 0.1.0
   media-center-app:
   - apiVersion: v2
     appVersion: "1"
@@ -536,4 +547,4 @@ entries:
     urls:
     - https://github.com/rxrw/helm-opti/releases/download/qinglong-0.1.0/qinglong-0.1.0.tgz
     version: 0.1.0
-generated: "2023-11-20T03:24:18.528320569Z"
+generated: "2023-11-20T06:25:30.568418086Z"
