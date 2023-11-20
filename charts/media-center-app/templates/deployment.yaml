@@ -174,7 +174,7 @@ spec:
         component: prowlarr
     spec:
       containers:
-        - image: linuxserver/prowlarr:nightly
+        - image: linuxserver/prowlarr:latest
           name: prowlarr
           ports:
             - containerPort: 9696
@@ -192,7 +192,7 @@ spec:
               value: "{{ .Values.global.timezone }}"
             - name: UMASK
               value: "{{ .Values.global.umask }}"
-        - image: flaresolverr/flaresolverr:v3.3.7
+        - image: flaresolverr/flaresolverr:latest
           name: flaresolverr
           ports:
             - containerPort: 8191
@@ -226,7 +226,7 @@ spec:
         component: radarr
     spec:
       containers:
-        - image: linuxserver/radarr:nightly
+        - image: linuxserver/radarr:latetst
           name: radarr
           ports:
             - containerPort: 7878

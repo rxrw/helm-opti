@@ -40,7 +40,7 @@ data:
     # Radarr
     radarr_enabled = True
     radarr_url = "http://radarr:7878"  # http://192.168.0.100:7878
-    radarr_api_key = "e01faf194f324db6ad97fcd9f97deca5"
+    radarr_api_key = "223dc43966014b6292d10f3a2914ce9f"
     radarr_quality_profile_id = ["Any"]  # can be name or id value - include multiple to allow the user to choose
     radarr_add_monitored = True
     radarr_search_on_add = True
