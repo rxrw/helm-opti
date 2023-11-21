@@ -678,4 +678,15 @@ entries:
     urls:
     - https://github.com/rxrw/helm-opti/releases/download/wakapi-0.1.0/wakapi-0.1.0.tgz
     version: 0.1.0
-generated: "2023-11-21T02:51:00.452067841Z"
+  wakapi-dashboard:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2023-11-21T04:53:22.932727652Z"
+    description: A Helm chart for Kubernetes
+    digest: 2adb7f743d718f14236e915b7fe2f8420ae8e7937aa99fffff9d2264ac9a80f4
+    name: wakapi-dashboard
+    type: application
+    urls:
+    - https://github.com/rxrw/helm-opti/releases/download/wakapi-dashboard-0.1.0/wakapi-dashboard-0.1.0.tgz
+    version: 0.1.0
+generated: "2023-11-21T04:53:22.932850381Z"
