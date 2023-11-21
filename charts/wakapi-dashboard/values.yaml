@@ -1,14 +1,14 @@
-# Default values for wakapi.
+# Default values for wakapi-dashboard.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
 replicaCount: 1
 
 image:
-  repository: n1try/wakapi
+  repository: macropower/wakatime-exporter
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "latest"
+  tag: ""
 
 imagePullSecrets: []
 nameOverride: ""
@@ -41,8 +41,7 @@ securityContext: {}
 
 service:
   type: ClusterIP
-  port: 3000
-  loadBalancerPort: 30300
+  port: 9212
 
 ingress:
   enabled: true
@@ -51,7 +50,7 @@ ingress:
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
-    - host: wakapi.opti.io
+    - host: waka.opti.io
       paths:
         - path: /
           pathType: Prefix
@@ -99,53 +98,11 @@ tolerations: []
 affinity: {}
 
 env:
-  - name: ENVIRONMENT
-    value: "production"
-  - name: WAKAPI_AGGREGATION_TIME
-    value: "0 15 2 * * *"
-  - name: WAKAPI_IMPORT_BATCH_SIZE
-    value: "1000"
-  - name: WAKAPI_IMPORT_BACKOFF_MIN
-    value: "0"
-  - name: WAKAPI_IMPORT_MAX_RATE
-    value: "0"
-  - name: WAKAPI_INACTIVE_DAYS
-    value: "365"
-  - name: WAKAPI_SUPPORT_CONTACT
-    value: "rxrw@me.com"
-  - name: WAKAPI_DATA_RETENTION_MONTHS
-    value: "-1"
-  - name: WAKAPI_PORT
-    value: "3000"
-  - name: WAKAPI_LISTEN_IPV4
-    value: "0.0.0.0"
-  - name: WAKAPI_LISTEN_SOCKET_MODE
-    value: "0666"
-  - name: WAKAPI_TIMEOUT_SEC
-    value: "30"
-  - name: WAKAPI_PUBLIC_URL
-    value: "https://wakapi.opti.io"
-  - name: WAKAPI_COOKIE_MAX_AGE
-    value: "172800"
-  - name: WAKAPI_PASSWORD_SALT
-    value: CkybCXAOqO3HmOpjmc528kthJrVbKMv9
-  - name: WAKAPI_EXPOSE_METRICS
+  - name: WAKA_API_KEY
+    value: fde4740a-8d55-4e5f-a4ff-686cd869672e
+  - name: WAKA_SCRAPE_URI
+    value: http://wakapi:3000/api/v1
+  - name: WAKA_USER
+    value: Jens
+  - name: WAKA_SSL_VERIFY
     value: "false"
-  - name: WAKAPI_DB_HOST
-    value: "postgres-postgresql.postgres.svc.cluster.local"
-  - name: WAKAPI_DB_PORT
-    value: "5432"
-  - name: WAKAPI_DB_USER
-    value: "hakatime"
-  - name: WAKAPI_DB_PASSWORD
-    value: "hakatime"
-  - name: WAKAPI_DB_NAME
-    value: "wakapi"
-  - name: WAKAPI_DB_TYPE
-    value: "postgres"
-  - name: WAKAPI_DB_MAX_CONNECTIONS
-    value: "2"
-  - name: WAKAPI_MAIL_ENABLED
-    value: "false"
-  - name: WAKAPI_MAIL_SMTP_PORT
-    value: 465
