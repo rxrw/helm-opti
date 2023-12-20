@@ -11,3 +11,23 @@ spec:
   selector:
     app: media-center
     component: qbittorrent
+# open 32061 for both TCP and UDP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: qbittorrent
+  namespace: media-center
+spec:
+  ports:
+    - name: tcp
+      port: 32061
+      targetPort: 32061
+      protocol: TCP
+    - name: udp
+      port: 32061
+      targetPort: 32061
+      protocol: UDP
+  selector:
+    app: media-center
+    component: qbittorrent

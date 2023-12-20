@@ -11,3 +11,23 @@ spec:
   selector:
     app: media-center
     component: transmission
+---
+# 32013
+apiVersion: v1
+kind: Service
+metadata:
+  name: transmission
+  namespace: media-center
+spec:
+  ports:
+    - name: udp
+      port: 32013
+      protocol: UDP
+      targetPort: 32013
+    - name: tcp
+      port: 32013
+      protocol: TCP
+      targetPort: 32013
+  selector:
+    app: media-center
+    component: transmission
