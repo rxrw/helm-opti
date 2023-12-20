@@ -282,6 +282,17 @@ entries:
   downloader-app:
   - apiVersion: v2
     appVersion: "1"
+    created: "2023-12-20T07:43:40.509721258Z"
+    description: A Helm chart for downloader with NFS as persistent storage
+    digest: df273d0083e9b0347a1dcfe3bccd260ac6b9837b1caf8c503c6d3090382ccb4a
+    icon: https://trakt.tv/assets/logos/white-bg@2x-626e9680c03d0542b3e26c3305f58050d2178e5d4222fac7831d83cf37fef42b.png
+    name: downloader-app
+    type: application
+    urls:
+    - https://github.com/rxrw/helm-opti/releases/download/downloader-app-0.1.6/downloader-app-0.1.6.tgz
+    version: 0.1.6
+  - apiVersion: v2
+    appVersion: "1"
     created: "2023-11-07T08:58:38.761290936Z"
     description: A Helm chart for downloader with NFS as persistent storage
     digest: ce7ef3add3209bb610fedd26e79f29dd68731ba97f16a0441f61cff4632d749a
@@ -719,4 +730,4 @@ entries:
     urls:
     - https://github.com/rxrw/helm-opti/releases/download/wakapi-dashboard-0.1.0/wakapi-dashboard-0.1.0.tgz
     version: 0.1.0
-generated: "2023-11-21T07:28:20.557812314Z"
+generated: "2023-12-20T07:43:40.509906023Z"
