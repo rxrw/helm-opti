@@ -226,7 +226,7 @@ spec:
         component: radarr
     spec:
       containers:
-        - image: linuxserver/radarr:latetst
+        - image: linuxserver/radarr:nightly
           name: radarr
           ports:
             - containerPort: 7878
