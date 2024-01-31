@@ -282,6 +282,17 @@ entries:
   downloader-app:
   - apiVersion: v2
     appVersion: "1"
+    created: "2024-01-31T02:13:15.81149026Z"
+    description: A Helm chart for downloader with NFS as persistent storage
+    digest: 466e5cae0d4cca803cf0b52e89910ed86469bb5181a39702a0cb3debdb70fcfc
+    icon: https://trakt.tv/assets/logos/white-bg@2x-626e9680c03d0542b3e26c3305f58050d2178e5d4222fac7831d83cf37fef42b.png
+    name: downloader-app
+    type: application
+    urls:
+    - https://github.com/rxrw/helm-opti/releases/download/downloader-app-0.1.7/downloader-app-0.1.7.tgz
+    version: 0.1.7
+  - apiVersion: v2
+    appVersion: "1"
     created: "2023-12-20T07:43:40.509721258Z"
     description: A Helm chart for downloader with NFS as persistent storage
     digest: df273d0083e9b0347a1dcfe3bccd260ac6b9837b1caf8c503c6d3090382ccb4a
@@ -397,6 +408,17 @@ entries:
     - https://github.com/rxrw/helm-opti/releases/download/hakatime-0.1.0/hakatime-0.1.0.tgz
     version: 0.1.0
   media-center-app:
+  - apiVersion: v2
+    appVersion: "1"
+    created: "2024-01-31T02:13:15.948073355Z"
+    description: A Helm chart for Media Center with NFS as persistent storage
+    digest: 7e401097be58ca0085b153137b768115063cb697158f40e7ca22f140ab9be6e4
+    icon: https://trakt.tv/assets/logos/white-bg@2x-626e9680c03d0542b3e26c3305f58050d2178e5d4222fac7831d83cf37fef42b.png
+    name: media-center-app
+    type: application
+    urls:
+    - https://github.com/rxrw/helm-opti/releases/download/media-center-app-1.2.7/media-center-app-1.2.7.tgz
+    version: 1.2.7
   - apiVersion: v2
     appVersion: "1"
     created: "2023-11-20T03:24:18.528200725Z"
@@ -730,4 +752,4 @@ entries:
     urls:
     - https://github.com/rxrw/helm-opti/releases/download/wakapi-dashboard-0.1.0/wakapi-dashboard-0.1.0.tgz
     version: 0.1.0
-generated: "2023-12-20T07:43:40.509906023Z"
+generated: "2024-01-31T02:13:15.948267819Z"
