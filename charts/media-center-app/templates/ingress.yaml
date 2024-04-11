@@ -14,7 +14,7 @@ spec:
               service:
                 name: bazarr
                 port:
-                  number: 6767
+                  name: app
     - host: emby.opti.io
       http:
         paths:
@@ -24,7 +24,7 @@ spec:
               service:
                 name: emby
                 port:
-                  number: 8096
+                  name: app
     - host: flexget.opti.io
       http:
         paths:
@@ -34,7 +34,7 @@ spec:
               service:
                 name: flexget
                 port:
-                  number: 5050
+                  name: app
     - host: prowlarr.opti.io
       http:
         paths:
@@ -44,7 +44,7 @@ spec:
               service:
                 name: prowlarr
                 port:
-                  number: 9696
+                  name: app
     - host: radarr.opti.io
       http:
         paths:
@@ -54,7 +54,7 @@ spec:
               service:
                 name: radarr
                 port:
-                  number: 7878
+                  name: app
     - host: sonarr.opti.io
       http:
         paths:
@@ -64,7 +64,7 @@ spec:
               service:
                 name: sonarr
                 port:
-                  number: 8989
+                  name: app
     - host: whisparr.opti.io
       http:
         paths:
@@ -74,4 +74,15 @@ spec:
               service:
                 name: whisparr
                 port:
-                  number: 6969
+                  name: app
+
+    - host: overseerr.opti.io
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: overseerr
+                port:
+                  name: app

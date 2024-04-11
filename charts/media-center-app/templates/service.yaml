@@ -140,3 +140,21 @@ spec:
   selector:
     app: media-center
     component: whisparr
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: media-center
+    component: overseerr
+  name: overseerr
+  namespace: media-center
+spec:
+  ports:
+    - name: app
+      port: 5055
+      targetPort: 5055
+  selector:
+    app: media-center
+    component: overseerr

@@ -395,3 +395,46 @@ spec:
           configMap:
             name: searcharr-config
       restartPolicy: Always
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: overseerr
+  namespace: media-center
+  labels:
+    app: media-center
+    component: overseerr
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: media-center
+      component: overseerr
+  template:
+    metadata:
+      labels:
+        app: media-center
+        component: overseerr
+    spec:
+      containers:
+        - image: linuxserver/overseerr:latest
+          name: overseerr
+          ports:
+            - containerPort: 5055
+          volumeMounts:
+            - mountPath: /config
+              name: overseerr-data
+          env:
+            - name: PUID
+              value: "{{ .Values.global.uid }}"
+            - name: PGID
+              value: "{{ .Values.global.gid }}"
+            - name: TZ
+              value: "{{ .Values.global.timezone }}"
+            - name: UMASK
+              value: "{{ .Values.global.umask }}"
+      volumes:
+        - name: overseerr-data
+          persistentVolumeClaim:
+            claimName: media-center-overseerr-config-pvc
+      restartPolicy: Always

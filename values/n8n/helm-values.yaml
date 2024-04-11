@@ -1,6 +1,9 @@
 n8n:
   encryption_key: "QK1LCdVJGO3ZXXKcG+Gx/ouqmnjW+VPO"
 
+image:
+  tag: "1.36.1"
+
 config:
   database:
     type:             postgresdb
@@ -11,13 +14,11 @@ config:
       user:           n8n
 
 generic:
-  timezone:     Asia/Shanghai
+  timezone: Asia/Shanghai
+
 host:         n8n.opti.io
 extraEnv:
-  WEBHOOK_TUNNEL_URL: "https://n8n.opti.io/"
-
-image:
-  tag: "1.14.2"
+  WEBHOOK_URL: "https://n8n.iuv520.com/"
 
 persistence:
   enabled: true
@@ -38,13 +39,12 @@ ingress:
 autoscaling:
   enabled: true
   minReplicas: 1
-  maxReplicas: 3
+  maxReplicas: 5
 
 scaling:
   enabled: true
   webhook:
     enabled: true
-
   redis:
     host: redis-master.redis.svc.cluster.local
     password: wai31415926

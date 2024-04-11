@@ -136,3 +136,17 @@ spec:
   resources:
     requests:
       storage: 1Gi
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: media-center-overseerr-config-pvc
+spec:
+  volumeName: media-center-overseerr-config-pv
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: ''
+  resources:
+    requests:
+      storage: 1Gi

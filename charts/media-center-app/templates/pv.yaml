@@ -136,3 +136,17 @@ spec:
   nfs:
     path: '{{ .Values.nfs.data.path }}/whisparr'
     server: '{{ .Values.nfs.data.server }}'
+
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: media-center-overseerr-config-pv
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  nfs:
+    path: '{{ .Values.nfs.data.path }}/overseerr'
+    server: '{{ .Values.nfs.data.server }}'
