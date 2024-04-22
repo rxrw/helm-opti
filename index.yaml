@@ -640,6 +640,17 @@ entries:
     urls:
     - https://github.com/rxrw/helm-opti/releases/download/metabase-app-0.1.0/metabase-app-0.1.0.tgz
     version: 0.1.0
+  openldap:
+  - apiVersion: v2
+    appVersion: 1.15.0
+    created: "2024-04-22T09:48:02.338828865Z"
+    description: A Helm chart for Kubernetes
+    digest: 433f3c7a61d6678d877becdc155fbe06f76ddb4880a9e140729e086f799698f8
+    name: openldap
+    type: application
+    urls:
+    - https://github.com/rxrw/helm-opti/releases/download/openldap-0.1.0/openldap-0.1.0.tgz
+    version: 0.1.0
   qinglong:
   - apiVersion: v2
     appVersion: "1"
@@ -796,4 +807,4 @@ entries:
     urls:
     - https://github.com/rxrw/helm-opti/releases/download/wakapi-dashboard-0.1.0/wakapi-dashboard-0.1.0.tgz
     version: 0.1.0
-generated: "2024-04-22T06:14:24.451694868Z"
+generated: "2024-04-22T09:48:02.338975197Z"
