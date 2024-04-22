@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "openldap.fullname" . }}-phpldapadmin
+spec:
+  type: {{ .Values.phpLDAPadmin.service.type }}
+  ports:
+  - port: {{ .Values.phpLDAPadmin.service.port }}
+    targetPort: 80
+  selector:
+    app: {{ include "openldap.fullname" . }}-phpldapadmin
+

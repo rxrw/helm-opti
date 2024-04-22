@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ include "openldap.fullname" . }}-ingress
+  annotations:
+    {{- toYaml .Values.phpLDAPadmin.ingress.annotations | nindent 4 }}
+spec:
+  rules:
+  {{- range .Values.phpLDAPadmin.ingress.hosts }}
+    - host: {{ .host }}
+      http:
+        paths:
+        {{- range .paths }}
+          - path: {{ .path }}
+            pathType: {{ .pathType }}
+            backend:
+              service:
+                name: openldap-phpldapadmin
+                port:
+                  number: 80
+        {{- end }}
+  {{- end }}
+

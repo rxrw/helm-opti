@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "openldap.fullname" . }}-phpldapadmin
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ include "openldap.fullname" . }}-phpldapadmin
+  template:
+    metadata:
+      labels:
+        app: {{ include "openldap.fullname" . }}-phpldapadmin
+    spec:
+      containers:
+      - name: phpldapadmin
+        image: "{{ .Values.phpLDAPadmin.image.repository }}:{{ .Values.phpLDAPadmin.image.tag }}"
+        imagePullPolicy: {{ .Values.phpLDAPadmin.image.pullPolicy }}
+        ports:
+        - containerPort: 80
+
