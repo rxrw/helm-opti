@@ -2,7 +2,7 @@ n8n:
   encryption_key: "QK1LCdVJGO3ZXXKcG+Gx/ouqmnjW+VPO"
 
 image:
-  tag: "1.36.1"
+  tag: "1.36.2"
 
 config:
   database:
@@ -44,7 +44,7 @@ autoscaling:
 scaling:
   enabled: true
   webhook:
-    enabled: true
+    enabled: false
   redis:
     host: redis-master.redis.svc.cluster.local
     password: wai31415926

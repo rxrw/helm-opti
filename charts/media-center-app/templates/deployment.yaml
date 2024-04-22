@@ -417,7 +417,7 @@ spec:
         component: overseerr
     spec:
       containers:
-        - image: linuxserver/overseerr:latest
+        - image: fallenbagel/jellyseerr:latest
           name: overseerr
           ports:
             - containerPort: 5055
@@ -433,8 +433,11 @@ spec:
               value: "{{ .Values.global.timezone }}"
             - name: UMASK
               value: "{{ .Values.global.umask }}"
+            - name: JELLYFIN_TYPE
+              value: emby
       volumes:
         - name: overseerr-data
           persistentVolumeClaim:
             claimName: media-center-overseerr-config-pvc
       restartPolicy: Always
+
