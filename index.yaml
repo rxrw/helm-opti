@@ -643,6 +643,16 @@ entries:
   openldap:
   - apiVersion: v2
     appVersion: 1.15.0
+    created: "2024-04-22T10:01:12.445431657Z"
+    description: A Helm chart for Kubernetes
+    digest: 3f939e6ea71e3b81b36a5d1a1e50d7fb12e333bc97ba6704d55f37513324ea44
+    name: openldap
+    type: application
+    urls:
+    - https://github.com/rxrw/helm-opti/releases/download/openldap-1.0.1/openldap-1.0.1.tgz
+    version: 1.0.1
+  - apiVersion: v2
+    appVersion: 1.15.0
     created: "2024-04-22T09:48:02.338828865Z"
     description: A Helm chart for Kubernetes
     digest: 433f3c7a61d6678d877becdc155fbe06f76ddb4880a9e140729e086f799698f8
@@ -807,4 +817,4 @@ entries:
     urls:
     - https://github.com/rxrw/helm-opti/releases/download/wakapi-dashboard-0.1.0/wakapi-dashboard-0.1.0.tgz
     version: 0.1.0
-generated: "2024-04-22T09:48:02.338975197Z"
+generated: "2024-04-22T10:01:12.445672804Z"
