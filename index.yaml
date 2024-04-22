@@ -410,6 +410,17 @@ entries:
   media-center-app:
   - apiVersion: v2
     appVersion: "1"
+    created: "2024-04-22T06:09:42.232179622Z"
+    description: A Helm chart for Media Center with NFS as persistent storage
+    digest: 4a1c8c79a43dea1c43995e839fa910fc9906ebe4551ad0dc653cea4816a0d328
+    icon: https://trakt.tv/assets/logos/white-bg@2x-626e9680c03d0542b3e26c3305f58050d2178e5d4222fac7831d83cf37fef42b.png
+    name: media-center-app
+    type: application
+    urls:
+    - https://github.com/rxrw/helm-opti/releases/download/media-center-app-1.4.0/media-center-app-1.4.0.tgz
+    version: 1.4.0
+  - apiVersion: v2
+    appVersion: "1"
     created: "2024-04-11T08:50:28.664794776Z"
     description: A Helm chart for Media Center with NFS as persistent storage
     digest: 35d6ff3e158caa04bb8bbf7d8e22eb8204dec21fd38b22f356bc1cb33d4b2a44
@@ -774,4 +785,4 @@ entries:
     urls:
     - https://github.com/rxrw/helm-opti/releases/download/wakapi-dashboard-0.1.0/wakapi-dashboard-0.1.0.tgz
     version: 0.1.0
-generated: "2024-04-11T08:50:28.664944856Z"
+generated: "2024-04-22T06:09:42.232405997Z"
