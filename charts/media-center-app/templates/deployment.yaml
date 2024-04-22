@@ -422,7 +422,7 @@ spec:
           ports:
             - containerPort: 5055
           volumeMounts:
-            - mountPath: /config
+            - mountPath: /app/config
               name: overseerr-data
           env:
             - name: PUID
