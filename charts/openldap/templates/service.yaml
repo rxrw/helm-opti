@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "hakatime.fullname" . }}
+  name: {{ include "openldap.fullname" . }}
   labels:
-    {{- include "hakatime.labels" . | nindent 4 }}
+    {{- include "openldap.labels" . | nindent 4 }}
 spec:
   type: {{ .Values.service.type }}
   ports:
@@ -12,4 +12,4 @@ spec:
       protocol: TCP
       name: http
   selector:
-    {{- include "hakatime.selectorLabels" . | nindent 4 }}
+    {{- include "openldap.selectorLabels" . | nindent 4 }}

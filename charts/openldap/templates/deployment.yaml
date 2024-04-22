@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "openldap.fullname" . }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "openldap.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "openldap.selectorLabels" . | nindent 8 }}
+    spec:
+      containers:
+        - name: ldap
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: ldap
+              containerPort: 389
+          env:
+            - name: LDAP_ORGANISATION
+              value: "{{ .Values.env.LDAP_ORGANISATION }}"
+            - name: LDAP_DOMAIN
+              value: "{{ .Values.env.LDAP_DOMAIN }}"
+            - name: LDAP_ADMIN_PASSWORD
+              value: "{{ .Values.env.LDAP_ADMIN_PASSWORD }}"
+          volumeMounts:
+            - name: ldap-data
+              mountPath: /var/lib/ldap
+      volumes:
+        - name: ldap-data
+          persistentVolumeClaim:
+            claimName: {{ include "openldap.fullname" . }}-pvc
+
